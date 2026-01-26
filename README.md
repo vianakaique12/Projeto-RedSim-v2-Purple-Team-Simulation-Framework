@@ -41,30 +41,30 @@ Command & Control (simulado)
 
 Linguagem: Python 3
 
-Sistema Operacional: Windows (ambiente de laboratório)
+Sistema Operacional: Windows (laboratório)
 
 IDE: Visual Studio Code
 
 🧩 Arquitetura do Projeto
 RedSim-v2/
 │
-├── main.py                 # Orquestrador principal
+├── main.py
 │
 ├── logs/
-│   └── activity.log        # Registro das ações simuladas
+│   └── activity.log
 │
 ├── modules/
-│   ├── enum_system.py      # Discovery (enumeração do sistema)
-│   ├── simulate_c2.py      # Simulação de Command & Control
-│   ├── simulate_exfil.py   # Simulação de exfiltração
-│   └── persistence.py     # Persistência simulada
+│   ├── enum_system.py
+│   ├── simulate_c2.py
+│   ├── simulate_exfil.py
+│   └── persistence.py
 │
 └── README.md
 
 🔥 Funcionalidades Implementadas
 🔍 Discovery
 
-Simula o reconhecimento inicial do sistema, coletando informações básicas:
+Simula o reconhecimento inicial do sistema, coletando:
 
 Sistema operacional
 
@@ -80,11 +80,9 @@ Usuário logado
 
 Simula mecanismos de persistência sem modificar o sistema real, com foco educacional.
 
-Exemplos:
-
 Criação de artefatos simulados
 
-Registro de eventos em logs
+Registro de eventos em log
 
 📡 Command & Control (Simulado)
 
@@ -96,12 +94,12 @@ Simula o processo de exfiltração criando arquivos locais que representam dados
 
 📝 Logging
 
-Todas as ações do agente são registradas em:
+Todas as ações são registradas em:
 
 logs/activity.log
 
 
-Isso permite:
+Permite:
 
 Auditoria
 
@@ -121,7 +119,7 @@ Exfiltration	Exfiltration Over C2 Channel	T1041
 
 ▶️ Execução
 
-Na raiz do projeto, execute:
+Na raiz do projeto:
 
 python main.py
 
@@ -136,8 +134,10 @@ Mapeamento de técnicas ofensivas
 
 Pensamento orientado a comportamento adversário
 
-Uso prático do framework MITRE ATT&CK
+Uso prático do MITRE ATT&CK
 
 Criação de simulações seguras
 
-Comunicação técnica entre Red ↔ Blue Team
+Integração conceitual entre Red ↔ Blue Team
+
+
