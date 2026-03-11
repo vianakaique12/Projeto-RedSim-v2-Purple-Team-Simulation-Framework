@@ -18,6 +18,10 @@ DETECTION_RULES: Dict[str, Dict[str, str]] = {
         "rule_id": "DET-003",
         "name": "Persistence technique observed",
     },
+    "T1555": {
+        "rule_id": "DET-004",
+        "name": "Credential access technique observed",
+    },
 }
 
 

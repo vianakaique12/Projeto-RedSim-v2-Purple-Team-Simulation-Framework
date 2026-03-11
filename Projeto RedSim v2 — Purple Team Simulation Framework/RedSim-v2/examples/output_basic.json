@@ -1,0 +1,82 @@
+{
+  "scenario": "basic",
+  "red_events": [
+    {
+      "event_id": "system_info_discovery",
+      "timestamp": "2026-03-11T20:00:14Z",
+      "side": "red",
+      "tactic": "Discovery",
+      "technique_id": "T1082",
+      "technique_name": "System Information Discovery",
+      "description": "Collected basic host information",
+      "metadata": {
+        "os": "Windows",
+        "hostname": "LAB-01",
+        "user": "analyst",
+        "architecture": "AMD64"
+      }
+    },
+    {
+      "event_id": "persistence_attempt",
+      "timestamp": "2026-03-11T20:00:14Z",
+      "side": "red",
+      "tactic": "Persistence",
+      "technique_id": "T1547",
+      "technique_name": "Boot or Logon Autostart Execution",
+      "description": "Simulated persistence attempt",
+      "metadata": {
+        "method": "Startup Folder (SIMULATED)"
+      }
+    },
+    {
+      "event_id": "c2_beacon",
+      "timestamp": "2026-03-11T20:00:15Z",
+      "side": "red",
+      "tactic": "Command and Control",
+      "technique_id": "T1071",
+      "technique_name": "Application Layer Protocol",
+      "description": "Simulated C2 beacon activity",
+      "metadata": {
+        "destination": "c2.fake-server.local"
+      }
+    }
+  ],
+  "blue_events": [
+    {
+      "event_id": "DET-002",
+      "timestamp": "2026-03-11T20:00:15Z",
+      "side": "blue",
+      "tactic": "Detection",
+      "technique_id": "T1082",
+      "technique_name": "System Information Discovery",
+      "description": "System information discovery observed",
+      "metadata": {
+        "source_event_id": "system_info_discovery"
+      }
+    },
+    {
+      "event_id": "DET-003",
+      "timestamp": "2026-03-11T20:00:15Z",
+      "side": "blue",
+      "tactic": "Detection",
+      "technique_id": "T1547",
+      "technique_name": "Boot or Logon Autostart Execution",
+      "description": "Persistence technique observed",
+      "metadata": {
+        "source_event_id": "persistence_attempt"
+      }
+    },
+    {
+      "event_id": "DET-001",
+      "timestamp": "2026-03-11T20:00:15Z",
+      "side": "blue",
+      "tactic": "Detection",
+      "technique_id": "T1071",
+      "technique_name": "Application Layer Protocol",
+      "description": "Outbound C2 beacon detected",
+      "metadata": {
+        "source_event_id": "c2_beacon"
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+name: enterprise
+steps:
+  - action: collect_system_info
+  - action: simulate_persistence
+    params:
+      method: Scheduled Task (SIMULATED)
+  - action: simulate_credential_access
+    params:
+      source: Browser Password Store (SIMULATED)
+  - action: simulate_c2
+    params:
+      destination: c2.enterprise.local
+      delay_seconds: 0.2
+  - action: simulate_c2
+    params:
+      destination: c2.enterprise.local
+      delay_seconds: 0.2

@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 
 
 @dataclass(frozen=True)
@@ -80,7 +80,7 @@ def load_yaml(path: Path) -> ScenarioDefinition:
     return validate_scenario(payload)
 
 
-def load_scenario_file(path: str | Path) -> ScenarioDefinition:
+def load_scenario_file(path: Union[str, Path]) -> ScenarioDefinition:
     scenario_path = Path(path)
     if not scenario_path.exists():
         raise FileNotFoundError(f"Scenario file not found: {scenario_path}")

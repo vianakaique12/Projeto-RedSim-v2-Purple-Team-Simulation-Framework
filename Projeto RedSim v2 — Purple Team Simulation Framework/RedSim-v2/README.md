@@ -5,9 +5,12 @@ RedSim v2 is a lightweight, local simulation framework for purple team workflows
 ## Highlights
 - Structured event model with MITRE ATT&CK technique mapping
 - Scenario runner that produces red and blue events
+- Scenario definitions in JSON/YAML with validation
 - Simple rule-based detection stubs (extendable)
 - CLI output in JSON for tooling and pipeline integration
+- Exporters for SIEM, Sigma-like, and metrics output
 - Example script and basic tests
+- CI with lint, formatting, and coverage
 
 ## Quickstart
 Install dependencies (YAML support):
@@ -16,10 +19,23 @@ Install dependencies (YAML support):
 python -m pip install -r requirements.txt
 ```
 
+Optional dev tools (lint/format/coverage):
+
+```bash
+python -m pip install -r requirements-dev.txt
+```
+
+Install as editable package:
+
+```bash
+python -m pip install -e .
+```
+
 Run the basic scenario and print JSON output:
 
 ```bash
 python -m redsim.cli --scenario basic --pretty
+redsim --scenario basic --pretty
 ```
 
 Run a scenario defined in JSON or YAML:
@@ -27,6 +43,7 @@ Run a scenario defined in JSON or YAML:
 ```bash
 python -m redsim.cli --scenario-file scenarios/basic.json --pretty
 python -m redsim.cli --scenario-file scenarios/basic.yaml --pretty
+python -m redsim.cli --scenario-file scenarios/enterprise.json --pretty
 ```
 
 List available scenarios:
@@ -34,6 +51,10 @@ List available scenarios:
 ```bash
 python -m redsim.cli --list-scenarios
 ```
+
+Included scenarios:
+- `basic` (built-in)
+- `enterprise` (JSON/YAML in `scenarios/`)
 
 Export in SIEM, Sigma-like, or metrics format:
 
@@ -49,7 +70,29 @@ Run tests:
 python -m unittest discover -s tests
 ```
 
+Quality checks:
+
+```bash
+ruff check .
+black --check .
+coverage run -m unittest discover -s tests
+coverage report -m
+```
+
+## Flow (high level)
+```mermaid
+flowchart LR
+  CLI[redsim CLI] -->|scenario| Runner[Scenario Runner]
+  Runner --> Red[Red Team Actions]
+  Red --> Events[SimEvent stream]
+  Events --> Blue[Blue Team Detections]
+  Events --> Export[Exporters]
+  Blue --> Export
+```
+
 ## Example Output (trimmed)
+See a generated sample at `examples/output_basic.json`.
+
 ```json
 {
   "scenario": "basic",

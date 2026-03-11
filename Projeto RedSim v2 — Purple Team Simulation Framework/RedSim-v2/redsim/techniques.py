@@ -15,6 +15,10 @@ TECHNIQUES: Dict[str, Dict[str, str]] = {
         "name": "Boot or Logon Autostart Execution",
         "tactic": "Persistence",
     },
+    "T1555": {
+        "name": "Credentials from Password Stores",
+        "tactic": "Credential Access",
+    },
 }
 
 

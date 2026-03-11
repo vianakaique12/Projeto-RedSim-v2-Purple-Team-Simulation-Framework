@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Callable, Dict, Iterable, List
+from typing import Callable, Dict, Iterable, List, Union
 
-from agent import collect_system_info, simulate_c2, simulate_persistence
+from agent import collect_system_info, simulate_c2, simulate_credential_access, simulate_persistence
 from blue_team import detect
 
 from .models import SimEvent, SimulationResult
@@ -15,6 +15,7 @@ from .scenarios import ScenarioDefinition, ScenarioStep, load_scenario_file
 ACTION_REGISTRY: Dict[str, Callable[..., SimEvent]] = {
     "collect_system_info": collect_system_info,
     "simulate_persistence": simulate_persistence,
+    "simulate_credential_access": simulate_credential_access,
     "simulate_c2": simulate_c2,
 }
 
@@ -54,6 +55,6 @@ def run_steps(name: str, steps: Iterable[ScenarioStep]) -> SimulationResult:
     return SimulationResult(scenario=name, red_events=red_events, blue_events=blue_events)
 
 
-def run_scenario_file(path: str | Path) -> SimulationResult:
+def run_scenario_file(path: Union[str, Path]) -> SimulationResult:
     scenario = load_scenario_file(path)
     return run_steps(scenario.name, scenario.steps)
