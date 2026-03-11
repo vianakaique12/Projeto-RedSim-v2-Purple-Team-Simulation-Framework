@@ -1,0 +1,10 @@
+name: basic
+steps:
+  - action: collect_system_info
+  - action: simulate_persistence
+    params:
+      method: Registry Run Key (SIMULATED)
+  - action: simulate_c2
+    params:
+      destination: c2.example.internal
+      delay_seconds: 0.2

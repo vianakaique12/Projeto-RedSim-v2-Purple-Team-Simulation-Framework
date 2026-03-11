@@ -1,7 +1,0 @@
-[2026-01-22 14:28:28.191491] RedSim v2 started
-[2026-01-22 14:28:28.275882] Discovery: {'os': 'Windows', 'hostname': 'DESKTOP-JA72I2V', 'user': 'Usuario', 'architecture': 'AMD64'}
-[2026-01-22 14:28:28.276203] Red Team: {'event': 'Persistence attempt detected', 'technique': 'T1547', 'method': 'Startup Folder (SIMULATED)'}
-[2026-01-22 14:28:29.276867] Red Team: {'event': 'C2 beacon simulated', 'technique': 'T1071', 'destination': 'c2.fake-server.local'}
-[2026-01-22 14:28:29.277457] ALERT: {'severity': 'HIGH', 'message': 'Persistence technique detected', 'mitre': 'T1547'}
-[2026-01-22 14:28:29.277995] ALERT: {'severity': 'MEDIUM', 'message': 'Possible C2 communication', 'mitre': 'T1071'}
-[2026-01-22 14:28:29.278416] RedSim v2 finished
